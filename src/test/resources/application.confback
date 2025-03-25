@@ -1,0 +1,37 @@
+
+testMysqlDB.dataSourceClassName=com.mysql.cj.jdbc.MysqlDataSource
+testMysqlDB.dataSource.url="jdbc:mysql://localhost:3306/quill_test"
+testMysqlDB.dataSource.user=root
+testMysqlDB.dataSource.password="password"
+testMysqlDB.dataSource.cachePrepStmts=true
+testMysqlDB.dataSource.prepStmtCacheSize=250
+testMysqlDB.dataSource.prepStmtCacheSqlLimit=2048
+testMysqlDB.maximumPoolSize=10
+
+
+
+# myDatabase {
+#   dataSourceClassName = "com.mysql.cj.jdbc.MysqlDataSource"
+#   dataSource {
+#     url = "jdbc:mysql://localhost:3306/patienttracker?useSSL=false&allowPublicKeyRetrieval=true"
+#     user = root
+#     password = password
+#   }
+# }
+
+# testMysqlDB.dataSourceClassName=com.mysql.cj.jdbc.MysqlDataSource
+# testMysqlDB.dataSource.url="jdbc:mysql://"${?MYSQL_HOST}":"${?MYSQL_PORT}"/quill_test"
+# testMysqlDB.dataSource.user=root
+# testMysqlDB.dataSource.password=${?MYSQL_PASSWORD}
+# testMysqlDB.dataSource.cachePrepStmts=true
+# testMysqlDB.dataSource.prepStmtCacheSize=250
+# testMysqlDB.dataSource.prepStmtCacheSqlLimit=2048
+# testMysqlDB.maximumPoolSize=10
+# myDatabase {
+#     driver="com.mysql.cj.jdbc.Driver"
+#     url="jdbc:mysql://localhost:3306/patienttracker?useSSL=false&allowPublicKeyRetrieval=true"
+#     user=root
+#     password=root
+#     keepAliveConnection = true 
+#     connectionPool = disabled 
+# }

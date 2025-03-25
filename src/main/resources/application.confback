@@ -1,0 +1,3 @@
+testMysqlDB.dataSourceClassName=org.postgresql.ds.PGSimpleDataSource
+testMysqlDB.dataSource.databaseName=<my-database>
+testMysqlDB.dataSource.url=<my-jdbc-url>
