@@ -22,8 +22,8 @@ class CardTest  extends AnyWordSpec with should.Matchers :
   "First test" should {"work" in {
     db.run(selectAllCards()).foreach(c => info(s"$c"))
     files.foreach{ p =>
-      // val c = card(p)
-      // db.run(addCard(c))
+      val c = card(p)
+      db.run(addCard(c))
       
     }
     info(s"$imagesdir")

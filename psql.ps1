@@ -1,2 +1,2 @@
 # id comes from docker ps
-docker exec -it 9d52459bca28  psql -U postgres -d items
+docker exec -it b5a4d3aa41ce  psql -U postgres -d items
