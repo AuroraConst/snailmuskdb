@@ -8,6 +8,7 @@ export io.getquill.extras._
 export io.getquill.ast.Entity
 export io.getquill.quat.Quat
 export scala.util.Random
+export CardProperties.*
 
 import io.getquill.*
 val db = new PostgresJdbcContext(SnakeCase,"db")
@@ -28,9 +29,9 @@ private def kind(path:os.Path):Kind = path match {
   case p if p.startsWith(imagesdir / "source") => Kind.Source
   case p if p.startsWith(imagesdir / "structures") => Kind.Structure
   case p if p.startsWith(imagesdir / "summons") => Kind.Summon
-  case _ => Kind.Weapon
+  case _ => Kind.Undefined
 }
-def card(path:os.Path):Card = Card(cardName(path),path.toString, randomColor(), kind(path))
+def card(path:os.Path):Card = Card(cardName(path), randomColor(), kind(path),randomRarity(),path.toString)
 
 
 

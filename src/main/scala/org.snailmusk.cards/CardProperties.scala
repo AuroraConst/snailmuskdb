@@ -31,15 +31,16 @@ object CardProperties :
         case _ => throw new IllegalArgumentException(s"Invalid format: $s")
       }
   }
-  given   MappedEncoding[Color, String](_.toString)
-  given   MappedEncoding[String, Color](Color.fromString(_))
+    given   MappedEncoding[Color, String](_.toString)
+    given   MappedEncoding[String, Color](Color.fromString(_))
   enum Kind :
       case Commander extends Kind
       case Operation extends Kind
       case Summon extends Kind
       case Structure extends Kind
       case Source extends Kind
-      case Weapon extends Kind  
+      case Weapon extends Kind
+      case Undefined extends Kind  
 
 
   object Kind :
@@ -53,10 +54,36 @@ object CardProperties :
             case "Weapon"     => Kind.Weapon
             case _ => throw new IllegalArgumentException(s"Invalid kind: $s")
         }
-  given   MappedEncoding[Kind, String](_.toString)
-  given   MappedEncoding[String, Kind](Kind.fromString(_))
+    given   MappedEncoding[Kind, String](_.toString)
+    given   MappedEncoding[String, Kind](Kind.fromString(_))
 
 
+  enum Rarity () :
+    case Common extends Rarity
+    case UnCommon extends Rarity
+    case Rare extends Rarity
+    case Sublime extends Rarity  
+
+  object Rarity :
+    def fromString(s: String): Rarity = 
+      s match {
+            case "Common"  => Rarity.Common
+            case "UnCommon"  => Rarity.UnCommon
+            case "Rare"     => Rarity.Rare
+            case "Sublime"  => Rarity.Sublime
+            case _ => throw new IllegalArgumentException(s"Invalid rarity: $s")
+        }  
+    given   MappedEncoding[Rarity, String](_.toString)
+    given   MappedEncoding[String, Rarity](Rarity.fromString(_))
+
+
+
+  def randomRarity(): Rarity =
+    Random.nextInt(4) match
+      case 0 => Rarity.Common
+      case 1 => Rarity.UnCommon
+      case 2 => Rarity.Rare
+      case 3 => Rarity.Sublime
 
   def randomColor(): Color = 
       Random.nextInt(5) match
@@ -75,4 +102,4 @@ object CardProperties :
       case 4 => Kind.Source
       case 5 => Kind.Weapon   
 
-  case class Card(name:String,path:String, color:Color, kind:Kind)
+  case class Card(name:String,color:Color, kind:Kind,rarity:Rarity, path:String )
