@@ -1,7 +1,7 @@
 import sbt._
 
 object Dependencies {
-  val protoquillVersion = "4.8.5"
+  val protoquillVersion = "4.8.6"
   lazy val munit = "org.scalameta" %% "munit" % "0.7.29"
 
   // https://mvnrepository.com/artifact/mysql/mysql-connector-java
@@ -12,9 +12,9 @@ object Dependencies {
   lazy val protoquill: Def.Initialize[Seq[ModuleID]] = Def.setting {
     Seq(
       // Syncronous JDBC Modules
-      // "io.getquill" %% "quill-jdbc" % protoquillVersion,
+      "io.getquill" %% "quill-jdbc" % protoquillVersion,
       // Or ZIO Modules
-      "io.getquill" %% "quill-jdbc-zio" % protoquillVersion,
+      // "io.getquill" %% "quill-jdbc-zio" % protoquillVersion,
       // Or Cassandra
       // "io.getquill" %% "quill-cassandra" % protoquillVersion,
       // Or Cassandra + ZIO
